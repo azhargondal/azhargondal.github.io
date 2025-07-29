@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Azhar Mehmood
 ---
 
 #  Hello, I'm Azhar Mehmood
