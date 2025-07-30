@@ -30,7 +30,7 @@ QA Automation Engineer | Cloud Practitioner | Python
 ### Marketing Bot
 Developed an AI-powered lead generation assistant leveraging Azure OpenAI, bot intelligently processes inputs, and process leads using selenium and fastapi in the backend, then processes and transforms the data to match a predefined schema. The transformed data is uploaded to Azure Cosmos DB using an Azure Timer Trigger Function for scheduled execution. The entire web solution is containerized using Docker and deployed as a scalable service on Azure Container Apps, ensuring high availability and performance
 
-- **Tech Stack:** Python, Azure SDK, Pandas
+- **Tech Stack:** Azure OpenAI, Azure Cognitive Services, FastAPI, Selenium, Python, Azure Functions (Timer Trigger), Azure Cosmos DB, Docker, Azure Container Apps, Git, Visual Studio Code, CSV, JSON
 
 ---
 
