@@ -27,8 +27,8 @@ QA Automation Engineer | Cloud Practitioner | Python
 ## 🚀 Projects
 
 
-### [🔹 Azure Blob Cleanup](https://github.com/haroonkhan/blob-cleaner)
-Python script to clean up Azure Blob Storage using SAS URLs.
+### Marketing Bot
+Developed an AI-powered lead generation assistant leveraging Azure OpenAI, bot intelligently processes inputs, and process leads using selenium and fastapi in the backend, then processes and transforms the data to match a predefined schema. The transformed data is uploaded to Azure Cosmos DB using an Azure Timer Trigger Function for scheduled execution. The entire web solution is containerized using Docker and deployed as a scalable service on Azure Container Apps, ensuring high availability and performance
 
 - **Tech Stack:** Python, Azure SDK, Pandas
 
@@ -36,13 +36,13 @@ Python script to clean up Azure Blob Storage using SAS URLs.
 
 ## 🧠 Skills
 
-- ✅ Python, Selenium, GitHub Actions
-- ✅ Azure Functions, Blob Storage, Logic Apps
-- ✅ QA Automation, Postman, Cypress
+-  Python, Selenium, Appium
+-  Azure Functions, Blob Storage, Logic Apps
+-  QA Automation, Postman, Jmeter
 
 ---
 
-## 📫 Contact
+## 📫 Contact - +92 3458190067
 
 - 📧 azhar.gondal19@gmail.com
 - 🔗 [LinkedIn](https://linkedin.com/in/azhar-gondal19)
