@@ -1,3 +1,4 @@
 title: Azhar Mehmood
-description: Software Test Engineer
-theme: jekyll-theme-slate
+description: AI Engineer building intelligent, automated systems
+exclude:
+  - README.md
