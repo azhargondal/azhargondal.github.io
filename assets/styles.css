@@ -244,10 +244,10 @@ nav {
 }
 nav.shrink .nav-inner { padding: 8px 10px 8px 18px; gap: 18px; background: rgba(10,10,13,0.78); }
 .brand {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  font-size: 1.02rem;
+  letter-spacing: 0.12em;
+  font-size: 1.08rem;
   display: flex; align-items: center; gap: 9px;
   white-space: nowrap;
   text-decoration: none;
@@ -311,14 +311,14 @@ nav.shrink .nav-inner { padding: 8px 10px 8px 18px; gap: 18px; background: rgba(
 section.view.hero { align-items: safe center; }
 
 /* ===== mega name hero ===== */
-.hero--mega { flex-direction: column; justify-content: center; text-align: center; position: relative; padding-top: 220px; }
+.hero--mega { flex-direction: column; justify-content: center; text-align: center; position: relative; padding-top: 260px; }
 .hero-center { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0; }
 .hero--mega .hero-status {
   opacity: 0; transform: translateY(14px);
   animation: megaFade 0.9s var(--ease) 0.15s forwards;
 }
 .mega-name {
-  margin: 30px 0 0;
+  margin: 46px 0 0;
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 0.9;
@@ -631,11 +631,11 @@ footer { display: none; }
 /* ---------- responsive ---------- */
 @media (max-height: 780px) {
   .mega-name .l { font-size: clamp(2.6rem, 11vw, 8rem); }
-  .hero--mega { padding-top: 180px; }
+  .hero--mega { padding-top: 200px; }
 }
 @media (max-height: 600px) {
-  section.view.hero { padding-top: 84px; }
-  .hero--mega { padding-top: 120px; }
+  section.view.hero { padding-top: 100px; }
+  .hero--mega { padding-top: 140px; }
 }
 @media (max-width: 920px) {
   .nav-links { display: none; }
