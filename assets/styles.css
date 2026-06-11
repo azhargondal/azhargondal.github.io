@@ -18,12 +18,12 @@
   --text-3: #6f6f7b;
 
   /* neon accents (oklch, shared chroma, varied hue) */
-  --cyan: oklch(0.82 0.14 200);
-  --blue: oklch(0.66 0.19 258);
-  --purple: oklch(0.62 0.21 300);
-  --cyan-soft: oklch(0.82 0.14 200 / 0.16);
-  --blue-soft: oklch(0.66 0.19 258 / 0.16);
-  --purple-soft: oklch(0.62 0.21 300 / 0.16);
+  --cyan: oklch(0.68 0.12 200);
+  --blue: oklch(0.52 0.16 258);
+  --purple: oklch(0.48 0.18 300);
+  --cyan-soft: oklch(0.68 0.12 200 / 0.16);
+  --blue-soft: oklch(0.52 0.16 258 / 0.16);
+  --purple-soft: oklch(0.48 0.18 300 / 0.16);
 
   --grad: linear-gradient(115deg, var(--cyan), var(--blue) 48%, var(--purple));
   --grad-soft: linear-gradient(115deg, var(--cyan-soft), var(--purple-soft));
@@ -277,12 +277,12 @@ nav.shrink .nav-inner { padding: 8px 10px 8px 18px; gap: 18px; background: rgba(
   padding: 10px 18px !important;
   border-radius: 999px;
   background: var(--grad) !important;
-  color: #060606 !important;
+  color: #e8e8ec !important;
   font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
 }
-.nav-cta:hover { color: #060606 !important; filter: brightness(1.08); }
+.nav-cta:hover { color: #e8e8ec !important; filter: brightness(1.15); }
 .nav-toggle { display: none; background: none; border: 0; color: var(--text); cursor: none; }
 .nav-toggle svg { width: 26px; height: 26px; }
 
@@ -400,7 +400,7 @@ body.loaded .mega-name .l { animation: letterRise 0.95s var(--ease-2) forwards; 
   transition: transform 0.2s var(--ease), box-shadow 0.3s;
   will-change: transform;
 }
-.btn-primary { background: var(--grad); color: #060606; font-weight: 600; box-shadow: 0 12px 40px -12px var(--blue); }
+.btn-primary { background: var(--grad); color: #e8e8ec; font-weight: 600; box-shadow: 0 12px 40px -12px var(--blue); }
 .btn-primary:hover { box-shadow: 0 18px 54px -10px var(--blue); }
 .btn-pill { background: rgba(255,255,255,0.03); color: var(--text); border: 1px solid var(--border-2); border-radius: 999px; }
 .btn-pill:hover { background: rgba(255,255,255,0.07); border-color: var(--cyan); }
