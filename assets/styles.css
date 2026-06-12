@@ -593,6 +593,14 @@ footer { border-top: 1px solid var(--border); padding: 60px 0 40px; }
 /* scroll progress */
 #progress { position: fixed; top: 0; left: 0; height: 2px; z-index: 70; background: var(--grad); width: 0%; box-shadow: 0 0 12px var(--cyan); }
 
+/* custom scrollbar styling */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 6px; transition: background 0.3s; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+scrollbar-width: thin;
+
 /* ---------- single-page view system ---------- */
 section.view {
   position: fixed;
