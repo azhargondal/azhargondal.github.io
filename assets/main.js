@@ -85,7 +85,13 @@
   function showView(id) {
     if (!isView(id)) id = "home";
     var target = document.getElementById(id);
-    views.forEach(function (v) { v.classList.toggle("active", v === target); });
+    views.forEach(function (v) {
+      if (v === target) {
+        v.classList.add("active");
+      } else {
+        v.classList.remove("active");
+      }
+    });
     target.scrollTop = 0;
     document.querySelectorAll(".nav-links a").forEach(function (a) {
       a.classList.toggle("active", a.getAttribute("href") === "#" + id);
