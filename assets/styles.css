@@ -51,8 +51,8 @@ body {
   font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.5;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  overflow-x: hidden;
   cursor: none;
 }
 
@@ -94,7 +94,7 @@ body {
   will-change: left, top;
 }
 
-main, nav, footer { position: relative; z-index: 3; }
+main, footer { position: relative; z-index: 3; }
 
 /* ---------- custom cursor ---------- */
 .cursor-dot, .cursor-ring {
@@ -294,9 +294,10 @@ nav.shrink .nav-inner { padding: 8px 10px 8px 18px; gap: 18px; background: rgba(
   display: flex; flex-direction: column; justify-content: center; gap: 8px;
   padding: 0 32px;
   transform: translateY(-100%);
+  pointer-events: none;
   transition: transform 0.6s var(--ease);
 }
-.mobile-menu.open { transform: none; }
+.mobile-menu.open { transform: none; pointer-events: auto; }
 .mobile-menu a {
   color: var(--text); text-decoration: none;
   font-size: clamp(2rem, 9vw, 3.2rem);
@@ -308,7 +309,7 @@ nav.shrink .nav-inner { padding: 8px 10px 8px 18px; gap: 18px; background: rgba(
 
 /* ---------- hero ---------- */
 .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 120px; padding-bottom: 80px; }
-section.view.hero { align-items: safe center; }
+.hero { align-items: safe center; }
 
 /* ===== mega name hero ===== */
 .hero--mega { flex-direction: column; justify-content: center; text-align: center; position: relative; padding-top: 260px; }
@@ -601,40 +602,13 @@ footer { border-top: 1px solid var(--border); padding: 60px 0 40px; }
 scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
 scrollbar-width: thin;
 
-/* ---------- single-page view system ---------- */
+/* ---------- section layout ---------- */
 section.view {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
   padding-top: clamp(100px, 14vh, 132px);
-  padding-bottom: 36px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(26px) scale(0.994);
-  transition: opacity 0.55s var(--ease), transform 0.7s var(--ease), visibility 0.55s;
-}
-section.view.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: none;
-}
-/* home: centered, never scrolls */
-section.view.hero {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  min-height: 0;
-  padding-bottom: clamp(100px, 14vh, 132px);
+  padding-bottom: 80px;
 }
 /* nav active state */
 .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.06); }
-/* progress bar + footer not needed in SPA mode */
-#progress { display: none; }
-footer { display: none; }
 
 /* ---------- responsive ---------- */
 @media (max-height: 780px) {
@@ -642,7 +616,7 @@ footer { display: none; }
   .hero--mega { padding-top: 200px; }
 }
 @media (max-height: 600px) {
-  section.view.hero { padding-top: 100px; }
+  .hero { padding-top: 100px; }
   .hero--mega { padding-top: 140px; }
 }
 @media (max-width: 920px) {

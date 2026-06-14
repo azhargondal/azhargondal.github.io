@@ -1,5 +1,3 @@
-/* Interactions: cursor, magnetic buttons, reveals, counters,
-   nav, mobile menu, terminal, form, konami. */
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var coarse = window.matchMedia("(pointer: coarse)").matches;
@@ -53,73 +51,90 @@
     });
   }
 
-  /* ---------- single-page router (view switching) ---------- */
-  var views = Array.from(document.querySelectorAll("section[data-view]"));
-  var countersDone = {};
-
-  function replayReveals(view) {
-    var els = view.querySelectorAll(".reveal");
-    els.forEach(function (el) { el.classList.remove("in"); });
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        els.forEach(function (el) { el.classList.add("in"); });
-      });
-    });
-  }
-  function runCounters(view) {
-    view.querySelectorAll("[data-count]").forEach(function (el) {
-      var target = parseFloat(el.dataset.count);
-      var dur = 1500, start = performance.now();
-      (function tick(now) {
-        var p = Math.min((now - start) / dur, 1);
-        var val = target * (1 - Math.pow(1 - p, 3));
-        el.textContent = Number.isInteger(target) ? Math.round(val) : val.toFixed(1);
-        if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
-      })(performance.now());
-    });
-  }
-  function isView(id) {
-    var el = document.getElementById(id);
-    return el && el.classList.contains("view");
-  }
-  function showView(id) {
-    if (!isView(id)) id = "home";
-    var target = document.getElementById(id);
-    views.forEach(function (v) {
-      if (v === target) {
-        v.classList.add("active");
-      } else {
-        v.classList.remove("active");
-      }
-    });
-    target.scrollTop = 0;
-    document.querySelectorAll(".nav-links a").forEach(function (a) {
-      a.classList.toggle("active", a.getAttribute("href") === "#" + id);
-    });
-    replayReveals(target);
-    if (id !== "home" && !countersDone[id]) { countersDone[id] = true; runCounters(target); }
-    if (location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
-  }
-
+  /* ---------- smooth scroll navigation ---------- */
   document.addEventListener("click", function (e) {
     var a = e.target.closest('a[href^="#"]');
     if (!a) return;
     var id = a.getAttribute("href").slice(1);
     if (!id) { e.preventDefault(); return; }
-    if (isView(id)) {
-      e.preventDefault();
-      showView(id);
-      var menu = document.querySelector(".mobile-menu");
-      if (menu) menu.classList.remove("open");
-    }
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth" });
+    var menu = document.querySelector(".mobile-menu");
+    if (menu) menu.classList.remove("open");
   });
 
+  /* ---------- nav active state on scroll ---------- */
+  var sections = Array.from(document.querySelectorAll("section[data-view]"));
+  var navLinks = document.querySelectorAll(".nav-links a");
+
+  function updateActiveNav() {
+    var scrollPos = window.scrollY + 150;
+    var current = "";
+    sections.forEach(function (section) {
+      if (section.offsetTop <= scrollPos) {
+        current = section.getAttribute("id");
+      }
+    });
+    navLinks.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+    });
+  }
+  window.addEventListener("scroll", updateActiveNav);
+  updateActiveNav();
+
+  /* ---------- nav shrink on scroll ---------- */
+  var nav = document.querySelector("nav");
+  window.addEventListener("scroll", function () {
+    if (nav) nav.classList.toggle("shrink", window.scrollY > 60);
+  });
+
+  /* ---------- mobile menu toggle ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.querySelector(".mobile-menu");
   if (toggle && menu) toggle.addEventListener("click", function () { menu.classList.toggle("open"); });
 
-  showView((location.hash || "#home").slice(1));
-  addEventListener("hashchange", function () { showView((location.hash || "#home").slice(1)); });
+  /* ---------- scroll reveal ---------- */
+  var revealEls = document.querySelectorAll(".reveal");
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(function (el) { revealObserver.observe(el); });
+
+  /* ---------- counters ---------- */
+  var countersDone = {};
+  var counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !countersDone[entry.target.id]) {
+        countersDone[entry.target.id] = true;
+        entry.target.querySelectorAll("[data-count]").forEach(function (el) {
+          var target = parseFloat(el.dataset.count);
+          var dur = 1500, start = performance.now();
+          (function tick(now) {
+            var p = Math.min((now - start) / dur, 1);
+            var val = target * (1 - Math.pow(1 - p, 3));
+            el.textContent = Number.isInteger(target) ? Math.round(val) : val.toFixed(1);
+            if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+          })(performance.now());
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(function (s) { if (s.id) counterObserver.observe(s); });
+
+  /* ---------- scroll progress bar ---------- */
+  var progress = document.getElementById("progress");
+  if (progress) {
+    window.addEventListener("scroll", function () {
+      var h = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + "%";
+    });
+  }
 
   /* ---------- project tilt ---------- */
   if (!coarse && !reduce) {
@@ -138,7 +153,9 @@
 
   /* ---------- back to top ---------- */
   var toTop = document.querySelector(".to-top");
-  if (toTop) toTop.addEventListener("click", function () { showView("home"); });
+  if (toTop) toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   /* ---------- contact form ---------- */
   var form = document.querySelector(".contact-form");
@@ -185,7 +202,12 @@
       print('<span class="cmd">visitor@azhar:~$</span> ' + raw, "out");
       if (!cmd) return;
       if (cmd === "clear") { tbody.innerHTML = ""; return; }
-      if (cmd.startsWith("open")) { showView("projects"); print("opening projects…"); return; }
+      if (cmd.startsWith("open")) {
+        var el = document.getElementById("projects");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        print("opening projects…");
+        return;
+      }
       if (commands[cmd]) print(commands[cmd]);
       else print("command not found: " + cmd + " — type 'help'");
     }
