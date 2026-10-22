@@ -3,8 +3,42 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Azhar Mehmood — AI/Automation Engineer</title>
-<meta name="description" content="Azhar Mehmood — AI Engineer building intelligent, automated systems on a foundation of QA, automation and cloud engineering." />
+<title>Azhar Mehmood — Software Engineer in Test · QA Automation · Azure</title>
+<meta name="description" content="Azhar Mehmood — Software Engineer in Test with 5+ years automating web and mobile testing with Python, Selenium and Appium, and building AI-powered automation on Microsoft Azure." />
+<meta name="author" content="Azhar Mehmood" />
+<meta name="theme-color" content="#050505" />
+<link rel="canonical" href="https://azhargondal.github.io/" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+<!-- social previews -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://azhargondal.github.io/" />
+<meta property="og:title" content="Azhar Mehmood — Software Engineer in Test" />
+<meta property="og:description" content="5+ years of QA automation with Python, Selenium and Appium. Building reliable, AI-powered systems on Azure." />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/67106134?v=4" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Azhar Mehmood — Software Engineer in Test" />
+<meta name="twitter:description" content="5+ years of QA automation with Python, Selenium and Appium. Building reliable, AI-powered systems on Azure." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Azhar Mehmood",
+  "url": "https://azhargondal.github.io/",
+  "image": "https://avatars.githubusercontent.com/u/67106134?v=4",
+  "jobTitle": "Software Engineer in Test",
+  "worksFor": { "@type": "Organization", "name": "OZ Digital Consulting" },
+  "email": "mailto:azhar.gondal19@gmail.com",
+  "telephone": "+92 345 8190067",
+  "sameAs": [
+    "https://github.com/azhargondal",
+    "https://www.linkedin.com/in/azhar-mehmood19"
+  ],
+  "knowsAbout": ["Test Automation", "Selenium", "Appium", "Python", "API Testing", "Performance Testing", "Microsoft Azure", "Azure DevOps", "FastAPI", "Docker"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -12,8 +46,10 @@
 </head>
 <body data-glow="on" data-cursor="on">
 
+<a href="#about" class="skip-link">Skip to content</a>
+
 <!-- loader -->
-<div id="loader">
+<div id="loader" aria-hidden="true">
   <div class="loader-inner">
     <div class="loader-mark">&lt;azhar/&gt;</div>
     <div class="loader-bar"><i></i></div>
@@ -22,17 +58,17 @@
 </div>
 
 <!-- background layers -->
-<canvas id="bg-canvas"></canvas>
-<div class="noise"></div>
-<div id="mouse-glow"></div>
-<div id="progress"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+<div id="mouse-glow" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
 
 <!-- custom cursor -->
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 
 <!-- nav -->
-<nav>
+<nav aria-label="Primary">
   <div class="nav-inner">
     <a href="#home" class="brand"><span class="dot"></span>AZHAR</a>
     <div class="nav-links">
@@ -43,19 +79,22 @@
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="nav-cta" data-magnetic="0.25">Let's talk</a>
-    <button class="nav-toggle" aria-label="Menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
     </button>
   </div>
 </nav>
 
 <!-- mobile menu -->
-<div class="mobile-menu">
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#experience">Experience</a>
-  <a href="#contact">Contact</a>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about"><span>01</span>About</a>
+  <a href="#skills"><span>02</span>Skills</a>
+  <a href="#projects"><span>03</span>Projects</a>
+  <a href="#experience"><span>04</span>Experience</a>
+  <a href="#contact"><span>05</span>Contact</a>
+  <div class="mobile-menu-foot">
+    <a href="mailto:azhar.gondal19@gmail.com">azhar.gondal19@gmail.com</a>
+  </div>
 </div>
 
 <main>
@@ -63,20 +102,31 @@
 <section class="view hero wrap hero--mega" id="home" data-view>
   <div class="hero-center">
 
+    <div class="hero-status"><span class="live"></span>Open to new opportunities</div>
+
     <h1 class="mega-name" aria-label="Azhar Mehmood">
-      <span class="mw">
+      <span class="mw" aria-hidden="true">
         <span class="l" style="--i:0">A</span><span class="l" style="--i:1">Z</span><span class="l" style="--i:2">H</span><span class="l" style="--i:3">A</span><span class="l" style="--i:4">R</span>
       </span>
-      <span class="mw">
+      <span class="mw" aria-hidden="true">
         <span class="l" style="--i:5">M</span><span class="l" style="--i:6">E</span><span class="l" style="--i:7">H</span><span class="l" style="--i:8">M</span><span class="l" style="--i:9">O</span><span class="l" style="--i:10">O</span><span class="l" style="--i:11">D</span>
       </span>
     </h1>
     <p class="hero-sub">
-      <span>Software Engineer in Test · Cloud Practitioner · Microsoft 4x Certified</span>
+      <span>Software Engineer in Test</span><i class="sep">/</i><span>QA Automation</span><i class="sep">/</i><span>Microsoft Certified</span>
+    </p>
+    <p class="hero-lead">
+      5+ years automating web &amp; mobile testing with <b>Python, Selenium &amp; Appium</b> —
+      and building AI-powered automation that runs itself on <b>Microsoft Azure</b>.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-pill" data-magnetic="0.3">View work <span class="arrow">→</span></a>
       <a href="#contact" class="btn btn-primary" data-magnetic="0.3">Get in touch</a>
+    </div>
+    <div class="hero-socials">
+      <a href="https://github.com/azhargondal" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3-.3 6-1.5 6-6.5a5 5 0 0 0-1.4-3.5 4.6 4.6 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a12 12 0 0 0-6.4 0C6.3 1.8 5.2 2.1 5.2 2.1a4.6 4.6 0 0 0-.1 3.5A5 5 0 0 0 3.7 9c0 5 3 6.2 5.9 6.5a3.4 3.4 0 0 0-1 2.6V22"/></svg></a>
+      <a href="https://www.linkedin.com/in/azhar-mehmood19" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-10h4v2"/><rect x="2" y="9" width="4" height="11"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="mailto:azhar.gondal19@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
     </div>
   </div>
 </section>
@@ -89,28 +139,36 @@
       <h2 class="section-title reveal d1">Engineer by craft,<br />builder by instinct.</h2>
       <p class="reveal d2">
         I'm a <strong>Software Engineer in Test</strong> with 5+ years of experience specializing in <strong>QA automation</strong> using
-        Python, Selenium, Appium, and Puppeteer. I have a proven track record automating end-to-end tests for web and mobile applications,
-        ensuring reliability, performance, and efficiency across platforms.
+        Python, Selenium, Appium, and Puppeteer. I automate end-to-end tests for web and mobile applications, making
+        releases reliable, fast, and repeatable across platforms.
       </p>
       <p class="reveal d2">
-        At <strong>OZ Digital Consulting</strong>, I architect scalable test automation frameworks, conduct comprehensive testing
-        (functional, regression, exploratory, API, performance), and validate ETL/data pipelines with Azure Data Factory. I'm also proficient
-        in full-stack development with <strong>FastAPI</strong>, cloud deployment (Docker, Kubernetes, Azure), and CI/CD automation via
-        <strong>Azure DevOps</strong>. <strong>Microsoft 4x Certified</strong> — I build systems that are reliable, observable, and production-ready.
+        At <strong>OZ Digital Consulting</strong>, I architect scalable test automation frameworks, run functional, regression,
+        exploratory, API, and performance testing, and validate ETL/data pipelines built on Azure Data Factory. Beyond testing, I build
+        backends with <strong>FastAPI</strong> and <strong>.NET 8</strong>, ship containerized services with Docker on Azure, and
+        automate delivery through <strong>Azure DevOps</strong> CI/CD.
       </p>
       <div class="values">
         <div class="value reveal d1"><div class="k">// 01</div><h4>Test obsessively</h4><p>Quality is non-negotiable. I catch bugs before they reach users.</p></div>
-        <div class="value reveal d2"><div class="k">// 02</div><h4>Automate relentlessly</h4><p>Manual work is a bug. I build frameworks that scale.</p></div>
-        <div class="value reveal d3"><div class="k">// 03</div><h4>Build reliability</h4><p>5+ years shipping systems that are tested, observed, and production-ready.</p></div>
-        <div class="value reveal d4"><div class="k">// 04</div><h4>Master the stack</h4><p>From Selenium to Azure DevOps—I learn systems deeply, not superficially.</p></div>
+        <div class="value reveal d2"><div class="k">// 02</div><h4>Automate relentlessly</h4><p>Repeated manual work is a bug. I build frameworks that scale.</p></div>
+        <div class="value reveal d3"><div class="k">// 03</div><h4>Ship reliably</h4><p>Systems that are tested, observable, and production-ready.</p></div>
+        <div class="value reveal d4"><div class="k">// 04</div><h4>Learn deeply</h4><p>From Selenium to Azure DevOps, I learn systems end to end.</p></div>
       </div>
     </div>
-    <div class="stats reveal d2">
-      <div class="stat"><div class="num"><span data-count="5">0</span><span class="suffix">+</span></div><div class="lbl">Years QA automation</div></div>
-      <div class="stat"><div class="num"><span data-count="6">0</span><span class="suffix">+</span></div><div class="lbl">Microsoft certifications</div></div>
-      <div class="stat"><div class="num"><span data-count="100">0</span><span class="suffix">%</span></div><div class="lbl">Test coverage focus</div></div>
-      <div class="stat"><div class="num"><span data-count="15">0</span><span class="suffix">+</span></div><div class="lbl">Tech stack mastered</div></div>
-    </div>
+    <aside class="about-side reveal d2">
+      <div class="stats">
+        <div class="stat"><div class="num"><span data-count="5">5</span><span class="suffix">+</span></div><div class="lbl">Years in QA &amp; automation</div></div>
+        <div class="stat"><div class="num"><span data-count="3">3</span></div><div class="lbl">Roles, Jr. QA → SET</div></div>
+        <div class="stat"><div class="num"><span data-count="2">2</span></div><div class="lbl">Platforms: web &amp; mobile</div></div>
+        <div class="stat"><div class="num"><span data-count="30">30</span><span class="suffix">+</span></div><div class="lbl">Tools &amp; technologies</div></div>
+      </div>
+      <dl class="facts">
+        <div><dt>Current role</dt><dd>Software Engineer in Test · OZ Digital Consulting</dd></div>
+        <div><dt>Focus</dt><dd>Test automation, API &amp; performance testing, Azure</dd></div>
+        <div><dt>Location</dt><dd>Pakistan</dd></div>
+        <div><dt>Status</dt><dd><span class="live"></span>Available for new roles</dd></div>
+      </dl>
+    </aside>
   </div>
 </section>
 
@@ -118,43 +176,43 @@
 <section id="skills" class="view wrap" data-view>
   <span class="eyebrow reveal">02 — Capabilities</span>
   <h2 class="section-title reveal d1">The testing &amp; engineering stack.</h2>
-  <p class="section-intro reveal d2">Test automation frameworks, QA methodologies, cloud platforms, and DevOps—a comprehensive toolkit for building reliable, scalable systems.</p>
+  <p class="section-intro reveal d2">Test automation frameworks, QA methodologies, cloud platforms, and DevOps: a complete toolkit for building reliable, scalable systems.</p>
   <div class="skills-grid">
     <div class="skill-cat reveal d1">
       <span class="cat-n">/ 01</span>
-      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3-.3 6-1.5 6-6.5a5 5 0 0 0-1.4-3.5 4.6 4.6 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a12 12 0 0 0-6.4 0C6.3 1.8 5.2 2.1 5.2 2.1a4.6 4.6 0 0 0-.1 3.5A5 5 0 0 0 3.7 9c0 5 3 6.2 5.9 6.5a3.4 3.4 0 0 0-1 2.6V22"/></svg></div>
+      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m9 11 3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
       <h3>Test Automation</h3>
-      <div class="chips"><span class="chip">Selenium</span><span class="chip">Appium</span><span class="chip">Puppeteer</span><span class="chip">Python</span><span class="chip">SDET</span><span class="chip">TDD</span></div>
+      <div class="chips"><span class="chip">Selenium</span><span class="chip">Appium</span><span class="chip">Puppeteer</span><span class="chip">Pytest</span><span class="chip">TDD</span><span class="chip">Web &amp; Mobile E2E</span></div>
     </div>
     <div class="skill-cat reveal d2">
       <span class="cat-n">/ 02</span>
-      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
-      <h3>Languages</h3>
-      <div class="chips"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">C#</span><span class="chip">SQL</span></div>
+      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <h3>Testing &amp; QA</h3>
+      <div class="chips"><span class="chip">Functional</span><span class="chip">Regression</span><span class="chip">Exploratory</span><span class="chip">API Testing</span><span class="chip">Performance</span><span class="chip">ETL / Data</span></div>
     </div>
     <div class="skill-cat reveal d3">
       <span class="cat-n">/ 03</span>
-      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <h3>Testing &amp; QA</h3>
-      <div class="chips"><span class="chip">Functional Testing</span><span class="chip">Regression Testing</span><span class="chip">API Testing</span><span class="chip">Performance Testing</span><span class="chip">Exploratory Testing</span><span class="chip">ETL Testing</span></div>
+      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8Z"/></svg></div>
+      <h3>QA Tooling</h3>
+      <div class="chips"><span class="chip">Postman</span><span class="chip">JMeter</span><span class="chip">Swagger UI</span><span class="chip">Git</span><span class="chip">VS Code</span><span class="chip">PyCharm</span></div>
     </div>
     <div class="skill-cat reveal d1">
       <span class="cat-n">/ 04</span>
-      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m9 11 3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
-      <h3>Testing Tools</h3>
-      <div class="chips"><span class="chip">Postman</span><span class="chip">JMeter</span><span class="chip">Swagger UI</span><span class="chip">Pytest</span><span class="chip">Agile/Scrum</span><span class="chip">Git</span></div>
+      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+      <h3>Languages &amp; Frameworks</h3>
+      <div class="chips"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">C#</span><span class="chip">SQL</span><span class="chip">FastAPI</span><span class="chip">.NET 8</span><span class="chip">React</span><span class="chip">HTML5 / CSS3</span></div>
     </div>
     <div class="skill-cat reveal d2">
       <span class="cat-n">/ 05</span>
       <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.7 1.5A4 4 0 0 0 6 19Z"/></svg></div>
-      <h3>Cloud &amp; DevOps</h3>
-      <div class="chips"><span class="chip">Azure</span><span class="chip">Functions</span><span class="chip">Cosmos DB</span><span class="chip">Container Apps</span><span class="chip">Data Factory</span><span class="chip">Azure DevOps</span></div>
+      <h3>Microsoft Azure</h3>
+      <div class="chips"><span class="chip">Azure OpenAI</span><span class="chip">Functions</span><span class="chip">Cosmos DB</span><span class="chip">Container Apps</span><span class="chip">Container Instances</span><span class="chip">Data Factory</span><span class="chip">Blob Storage</span><span class="chip">Logic Apps</span></div>
     </div>
     <div class="skill-cat reveal d3">
       <span class="cat-n">/ 06</span>
-      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></div>
-      <h3>Data &amp; Infra</h3>
-      <div class="chips"><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Git</span><span class="chip">ETL Pipelines</span><span class="chip">Microservices</span></div>
+      <div class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+      <h3>DevOps &amp; Delivery</h3>
+      <div class="chips"><span class="chip">Azure DevOps</span><span class="chip">CI/CD Pipelines</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Microservices</span><span class="chip">Agile / Scrum</span></div>
     </div>
   </div>
 </section>
@@ -166,23 +224,27 @@
       <span class="eyebrow reveal">03 — Selected work</span>
       <h2 class="section-title reveal d1">Things I've shipped.</h2>
     </div>
-    <p class="section-intro reveal d2" style="margin:0;max-width:34ch">Real systems, real stacks. The dashed cards are slots — drop your next projects in.</p>
+    <p class="section-intro reveal d2" style="margin:0;max-width:38ch">Production systems and open-source work across test automation, AI and the Azure cloud.</p>
   </div>
 
   <div class="proj-list">
-    <!-- REAL PROJECT -->
     <article class="project reveal" data-tilt>
       <div class="project-glow"></div>
       <div class="project-inner">
         <div class="project-body">
-          <span class="project-tag">AI · Automation · Azure</span>
+          <span class="project-tag">Featured · AI · Automation · Azure</span>
           <h3>AI Marketing Bot</h3>
           <p class="p-desc">
-            An AI-powered lead-generation assistant on Azure OpenAI. It scrapes and processes
-            leads with Selenium + FastAPI, transforms data to a predefined schema, and writes to
-            Cosmos DB on a scheduled Timer Trigger — fully containerized and deployed as a scalable
-            service on Azure Container Apps for high availability.
+            An AI-powered lead-generation assistant built on Azure OpenAI. It collects and processes leads with
+            Selenium and FastAPI, transforms the data to a predefined schema, and writes it to Cosmos DB on a scheduled
+            Timer Trigger. The whole solution is containerized with Docker and runs on Azure Container Apps for
+            high availability.
           </p>
+          <ul class="p-points">
+            <li>Automated lead collection with Selenium, orchestrated by a FastAPI backend</li>
+            <li>LLM-driven processing and schema mapping with Azure OpenAI</li>
+            <li>Scheduled, hands-off ingestion into Cosmos DB with Azure Functions</li>
+          </ul>
           <div class="p-stack">
             <span>Azure OpenAI</span><span>FastAPI</span><span>Selenium</span><span>Python</span><span>Azure Functions</span><span>Cosmos DB</span><span>Docker</span><span>Container Apps</span>
           </div>
@@ -191,45 +253,45 @@
             <div class="m"><b>Auto</b><span>schema mapping</span></div>
             <div class="m"><b>HA</b><span>container-scaled</span></div>
           </div>
-          <div class="p-links">
-            <a href="#" class="p-link">↗ Live demo</a>
-            <a href="https://github.com/azhargondal" class="p-link" target="_blank" rel="noopener">↗ GitHub</a>
+        </div>
+        <div class="project-visual" aria-hidden="true">
+          <div class="flow">
+            <div class="flow-node"><span class="fn-k">01 · collect</span><b>Selenium + FastAPI</b></div>
+            <div class="flow-line"></div>
+            <div class="flow-node accent"><span class="fn-k">02 · understand</span><b>Azure OpenAI</b></div>
+            <div class="flow-line"></div>
+            <div class="flow-node"><span class="fn-k">03 · transform</span><b>Schema mapping</b></div>
+            <div class="flow-line"></div>
+            <div class="flow-node"><span class="fn-k">04 · store</span><b>Cosmos DB</b></div>
+            <div class="flow-foot"><span>⏱ Timer Trigger</span><span>🐳 Container Apps</span></div>
           </div>
         </div>
-        <div class="project-visual">
-          <div class="placeholder-visual"><div class="ph">// drop a screenshot or demo<br />GIF of the Marketing Bot here<br />(1200×900)</div></div>
-        </div>
       </div>
     </article>
+  </div>
 
-    <!-- PLACEHOLDER SLOTS -->
-    <article class="project is-placeholder reveal d1" data-tilt>
-      <div class="project-glow"></div>
-      <div class="project-inner">
-        <div class="project-body">
-          <span class="project-tag">// open slot</span>
-          <h3 style="color:var(--text-2)">Your next project</h3>
-          <p class="add">Add a project here — <b>title, description, stack, metrics and links.</b></p>
-          <div class="p-stack"><span>+ tech</span><span>+ tech</span><span>+ tech</span></div>
-          <div class="p-links"><a href="#" class="p-link">↗ Live demo</a><a href="#" class="p-link">↗ GitHub</a></div>
-        </div>
-        <div class="project-visual"><div class="placeholder-visual"><div class="ph">// project preview</div></div></div>
-      </div>
-    </article>
-
-    <article class="project is-placeholder reveal d2" data-tilt>
-      <div class="project-glow"></div>
-      <div class="project-inner">
-        <div class="project-body">
-          <span class="project-tag">// open slot</span>
-          <h3 style="color:var(--text-2)">Your next project</h3>
-          <p class="add">Showcase an automation framework, an AI agent, or a cloud pipeline — <b>whatever you're proudest of.</b></p>
-          <div class="p-stack"><span>+ tech</span><span>+ tech</span><span>+ tech</span></div>
-          <div class="p-links"><a href="#" class="p-link">↗ Live demo</a><a href="#" class="p-link">↗ GitHub</a></div>
-        </div>
-        <div class="project-visual"><div class="placeholder-visual"><div class="ph">// project preview</div></div></div>
-      </div>
-    </article>
+  <h3 class="sub-head reveal">More on GitHub</h3>
+  <div class="repo-grid">
+    <a class="repo reveal d1" href="https://github.com/azhargondal/TDSygnal" target="_blank" rel="noopener">
+      <span class="repo-top"><span class="repo-ico">⌘</span><span class="repo-arrow">↗</span></span>
+      <b>TDSygnal</b>
+      <span class="repo-lang"><i style="background:#178600"></i>C#</span>
+    </a>
+    <a class="repo reveal d2" href="https://github.com/azhargondal/FirstAPI" target="_blank" rel="noopener">
+      <span class="repo-top"><span class="repo-ico">⌘</span><span class="repo-arrow">↗</span></span>
+      <b>FirstAPI</b>
+      <span class="repo-lang"><i style="background:#3572A5"></i>Python</span>
+    </a>
+    <a class="repo reveal d3" href="https://github.com/azhargondal/python-practice-to-pro" target="_blank" rel="noopener">
+      <span class="repo-top"><span class="repo-ico">⌘</span><span class="repo-arrow">↗</span></span>
+      <b>python-practice-to-pro</b>
+      <span class="repo-lang"><i style="background:#3572A5"></i>Python</span>
+    </a>
+    <a class="repo repo-all reveal d4" href="https://github.com/azhargondal?tab=repositories" target="_blank" rel="noopener">
+      <span class="repo-top"><span class="repo-ico">⌘</span><span class="repo-arrow">↗</span></span>
+      <b>All repositories</b>
+      <span class="repo-lang">github.com/azhargondal</span>
+    </a>
   </div>
 </section>
 
@@ -237,24 +299,36 @@
 <section id="experience" class="view wrap" data-view>
   <span class="eyebrow reveal">04 — Journey</span>
   <h2 class="section-title reveal d1">Experience timeline.</h2>
-  <p class="section-intro reveal d2">5+ years in QA automation and test engineering—from Jr. QA to Software Engineer in Test, architecting scalable automation frameworks.</p>
+  <p class="section-intro reveal d2">5+ years in QA automation and test engineering, growing from Jr. QA Engineer to Software Engineer in Test.</p>
   <div class="timeline">
     <div class="tl-item reveal d1">
-      <div class="tl-when">MARCH 2023 — PRESENT</div>
+      <div class="tl-when">MAR 2023 — PRESENT <span class="tl-now">Current</span></div>
       <div class="tl-role">Software Engineer in Test <span class="at">· OZ Digital Consulting</span></div>
-      <p class="tl-desc">Architecting scalable test automation frameworks and leading QA initiatives. Automating end-to-end tests for web and mobile, validating ETL pipelines with Azure Data Factory, and conducting comprehensive testing (functional, regression, API, performance). Building and maintaining CI/CD pipelines with Azure DevOps.</p>
+      <ul class="tl-desc">
+        <li>Architect and maintain scalable test automation frameworks for web and mobile applications.</li>
+        <li>Validate ETL and data pipelines built with Azure Data Factory.</li>
+        <li>Run functional, regression, API, and performance testing across releases.</li>
+        <li>Build and maintain CI/CD pipelines in Azure DevOps so tests run on every change.</li>
+      </ul>
       <div class="tl-tags"><span>Selenium</span><span>Appium</span><span>Python</span><span>Azure DevOps</span><span>Data Factory</span><span>Postman</span><span>JMeter</span></div>
     </div>
     <div class="tl-item reveal d2">
-      <div class="tl-when">MARCH 2021 — FEBRUARY 2023</div>
+      <div class="tl-when">MAR 2021 — FEB 2023</div>
       <div class="tl-role">QA Engineer <span class="at">· OZ Digital Consulting</span></div>
-      <p class="tl-desc">Developed automated test suites using Python with Selenium and Appium for web and mobile applications. Conducted manual testing including functional, regression, and exploratory testing. Performed API and performance testing with Postman, Swagger UI, and JMeter.</p>
+      <ul class="tl-desc">
+        <li>Developed automated test suites in Python with Selenium and Appium for web and mobile apps.</li>
+        <li>Performed manual functional, regression, and exploratory testing.</li>
+        <li>Ran API and performance testing with Postman, Swagger UI, and JMeter.</li>
+      </ul>
       <div class="tl-tags"><span>Selenium</span><span>Appium</span><span>Python</span><span>API Testing</span><span>JMeter</span><span>Postman</span></div>
     </div>
     <div class="tl-item reveal d3">
-      <div class="tl-when">OCTOBER 2020 — MARCH 2021</div>
+      <div class="tl-when">OCT 2020 — MAR 2021</div>
       <div class="tl-role">Jr. QA Engineer <span class="at">· Spartans Innovations</span></div>
-      <p class="tl-desc">Started career in quality assurance, learning test automation fundamentals and manual testing practices. Contributed to automated test development and executed test cases across multiple platforms.</p>
+      <ul class="tl-desc">
+        <li>Started in quality assurance, learning test automation fundamentals and manual testing practice.</li>
+        <li>Wrote and executed test cases across multiple platforms and contributed to automated tests.</li>
+      </ul>
       <div class="tl-tags"><span>QA Testing</span><span>Test Automation</span><span>Manual Testing</span></div>
     </div>
   </div>
@@ -265,14 +339,14 @@
   <div class="contact-grid">
     <div>
       <span class="eyebrow reveal">05 — Contact</span>
-      <h2 class="section-title reveal d1" style="font-size:clamp(2.4rem,6vw,4rem)">Let's build<br />something <span class="grad-text">intelligent.</span></h2>
-      <p class="contact-sub reveal d2">Open to QA automation, test engineering, and software development opportunities. Let's build reliable systems together. Fastest reply is by email.</p>
+      <h2 class="section-title reveal d1" style="font-size:clamp(2.4rem,6vw,4rem)">Let's build<br />something <span class="grad-text">reliable.</span></h2>
+      <p class="contact-sub reveal d2">Open to QA automation, test engineering, and software development opportunities. Email is the fastest way to reach me.</p>
       <div class="contact-list">
         <a class="c-row reveal d1" href="mailto:azhar.gondal19@gmail.com">
           <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
           <span><span class="ck">EMAIL</span><span class="cv">azhar.gondal19@gmail.com</span></span><span class="arrow">→</span>
         </a>
-        <a class="c-row reveal d2" href="https://linkedin.com/in/azhar-mehmood19" target="_blank" rel="noopener">
+        <a class="c-row reveal d2" href="https://www.linkedin.com/in/azhar-mehmood19" target="_blank" rel="noopener">
           <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-10h4v2"/><rect x="2" y="9" width="4" height="11"/><circle cx="4" cy="4" r="2"/></svg></span>
           <span><span class="ck">LINKEDIN</span><span class="cv">/in/azhar-mehmood19</span></span><span class="arrow">→</span>
         </a>
@@ -286,12 +360,16 @@
         </a>
       </div>
     </div>
-    <form class="contact-form reveal d2">
-      <div class="field"><input type="text" id="name" required placeholder=" " /><label for="name">your name</label></div>
-      <div class="field"><input type="email" id="email" required placeholder=" " /><label for="email">your email</label></div>
-      <div class="field"><textarea id="msg" rows="4" required placeholder=" "></textarea><label for="msg">message</label></div>
+    <form class="contact-form reveal d2" novalidate>
+      <div class="form-head">
+        <span class="ck">SEND A MESSAGE</span>
+        <p>Opens in your email app, addressed to me.</p>
+      </div>
+      <div class="field"><input type="text" id="name" name="name" required autocomplete="name" placeholder=" " /><label for="name">your name</label></div>
+      <div class="field"><input type="email" id="email" name="email" required autocomplete="email" placeholder=" " /><label for="email">your email</label></div>
+      <div class="field"><textarea id="msg" name="message" rows="4" required placeholder=" "></textarea><label for="msg">message</label></div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center" data-magnetic="0.15">Send message <span class="arrow">→</span></button>
-      <div class="form-msg"></div>
+      <div class="form-msg" role="status" aria-live="polite"></div>
     </form>
   </div>
 </section>
@@ -303,29 +381,32 @@
     <div class="footer-top">
       <div>
         <div class="footer-mark grad-text">&lt;azhar/&gt;</div>
-        <p style="color:var(--text-3);font-family:var(--font-mono);font-size:0.8rem;margin-top:10px">AI Engineer · Building the future, one system at a time.</p>
+        <p class="footer-tag">Software Engineer in Test · QA Automation · Azure</p>
+      </div>
+      <div class="footer-nav">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
       </div>
       <div class="footer-socials">
         <a href="https://github.com/azhargondal" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3-.3 6-1.5 6-6.5a5 5 0 0 0-1.4-3.5 4.6 4.6 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a12 12 0 0 0-6.4 0C6.3 1.8 5.2 2.1 5.2 2.1a4.6 4.6 0 0 0-.1 3.5A5 5 0 0 0 3.7 9c0 5 3 6.2 5.9 6.5a3.4 3.4 0 0 0-1 2.6V22"/></svg></a>
-        <a href="https://linkedin.com/in/azhar-mehmood19" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-10h4v2"/><rect x="2" y="9" width="4" height="11"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://www.linkedin.com/in/azhar-mehmood19" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-10h4v2"/><rect x="2" y="9" width="4" height="11"/><circle cx="4" cy="4" r="2"/></svg></a>
         <a href="mailto:azhar.gondal19@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Azhar Mehmood. Designed &amp; engineered with intent.</span>
+      <span>&copy; <span id="year">2026</span> Azhar Mehmood. Designed &amp; engineered with intent.</span>
       <button class="to-top">BACK TO TOP <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
     </div>
   </div>
 </footer>
 
 <!-- terminal -->
-<button class="term-fab" aria-label="Open terminal">
+<button class="term-fab" aria-label="Open terminal" aria-expanded="false">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M13 15h4"/></svg>
 </button>
-<div class="terminal">
+<div class="terminal" role="dialog" aria-label="Interactive terminal">
   <div class="term-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>visitor@azhar — bash</span></div>
   <div class="term-body"></div>
-  <div class="term-input"><span class="ps">$</span><input type="text" autocomplete="off" spellcheck="false" placeholder="type 'help'" /></div>
+  <div class="term-input"><span class="ps">$</span><input type="text" autocomplete="off" spellcheck="false" placeholder="type 'help'" aria-label="Terminal command" /></div>
 </div>
 
 <script src="assets/background.js"></script>
