@@ -60,9 +60,8 @@
     var target = document.getElementById(id);
     if (!target) return;
     e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth" });
-    var menu = document.querySelector(".mobile-menu");
-    if (menu) menu.classList.remove("open");
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+    setMenu(false);
   });
 
   /* ---------- nav active state on scroll ---------- */
@@ -93,7 +92,16 @@
   /* ---------- mobile menu toggle ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.querySelector(".mobile-menu");
-  if (toggle && menu) toggle.addEventListener("click", function () { menu.classList.toggle("open"); });
+  function setMenu(open) {
+    if (!toggle || !menu) return;
+    menu.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+  if (toggle && menu) toggle.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
+  addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+  addEventListener("resize", function () { if (innerWidth > 920) setMenu(false); });
 
   /* ---------- scroll reveal ---------- */
   var revealEls = document.querySelectorAll(".reveal");
@@ -107,10 +115,11 @@
   revealEls.forEach(function (el) { revealObserver.observe(el); });
 
   /* ---------- counters ---------- */
+  if (!reduce) document.querySelectorAll("[data-count]").forEach(function (el) { el.textContent = "0"; });
   var countersDone = {};
   var counterObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting && !countersDone[entry.target.id]) {
+      if (entry.isIntersecting && !reduce && !countersDone[entry.target.id]) {
         countersDone[entry.target.id] = true;
         entry.target.querySelectorAll("[data-count]").forEach(function (el) {
           var target = parseFloat(el.dataset.count);
@@ -157,19 +166,30 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  /* ---------- contact form ---------- */
+  /* ---------- year ---------- */
+  var year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+
+  /* ---------- contact form (opens the visitor's mail client) ---------- */
   var form = document.querySelector(".contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var msg = form.querySelector(".form-msg");
-      var btn = form.querySelector("button[type=submit]");
-      if (btn) { btn.textContent = "Sending…"; }
-      setTimeout(function () {
-        if (msg) msg.textContent = "// message queued — I'll reply within 24h.";
-        if (btn) btn.innerHTML = 'Send message <span class="arrow">→</span>';
-        form.reset();
-      }, 900);
+      var name = form.elements.name.value.trim();
+      var email = form.elements.email.value.trim();
+      var body = form.elements.message.value.trim();
+      msg.classList.remove("err");
+      if (!name || !body || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.classList.add("err");
+        msg.textContent = "// please fill in your name, a valid email and a message.";
+        return;
+      }
+      var subject = "Portfolio enquiry from " + name;
+      var text = body + "\n\n— " + name + " (" + email + ")";
+      window.location.href = "mailto:azhar.gondal19@gmail.com?subject=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+      msg.textContent = "// opening your email app… if nothing happens, email azhar.gondal19@gmail.com directly.";
     });
   }
 
@@ -179,6 +199,9 @@
   var tbody = document.querySelector(".term-body");
   var tinput = document.querySelector(".term-input input");
   if (fab && term && tbody && tinput) {
+    function esc(s) {
+      return s.replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
+    }
     function print(html, cls) {
       var div = document.createElement("div");
       div.className = cls || "out";
@@ -187,19 +210,19 @@
       tbody.scrollTop = tbody.scrollHeight;
     }
     var commands = {
-      help: "available: help, about, skills, projects, contact, ai, clear, sudo, social, theme",
-      about: "Azhar Mehmood — AI Engineer building intelligent, automated systems\non a foundation of QA, automation & cloud (~5 yrs).",
-      skills: "AI/ML · Azure OpenAI · FastAPI · Python · Selenium · Appium\n.NET 8 · React · Docker · Azure · CI/CD · TDD",
-      projects: "1. AI Marketing Bot — Azure OpenAI lead-gen pipeline\n   type 'open marketing' or scroll to Projects ↑",
-      contact: "email: azhar.gondal19@gmail.com\nlinkedin: /in/azhar-gondal19\nphone: +92 345 8190067",
-      ai: "currently: LLM agents, RAG pipelines, prompt orchestration,\nautomated QA + cloud-native deployment on Azure.",
-      social: "github.com/azhargondal · linkedin.com/in/azhar-gondal19",
+      help: "available: help, about, skills, experience, projects, contact, social, clear, sudo, theme",
+      about: "Azhar Mehmood — Software Engineer in Test.\n5+ yrs of QA automation (Python, Selenium, Appium)\nand AI-powered automation on Microsoft Azure.",
+      skills: "Selenium · Appium · Puppeteer · Pytest · Postman · JMeter\nPython · C# · TypeScript · FastAPI · .NET 8\nAzure · Azure DevOps · Docker · Kubernetes · CI/CD",
+      experience: "2023–now  Software Engineer in Test · OZ Digital Consulting\n2021–2023 QA Engineer · OZ Digital Consulting\n2020–2021 Jr. QA Engineer · Spartans Innovations",
+      projects: "1. AI Marketing Bot — Azure OpenAI lead-gen pipeline\n   type 'open' to jump to Projects",
+      contact: "email: azhar.gondal19@gmail.com\nlinkedin: /in/azhar-mehmood19\nphone: +92 345 8190067",
+      social: "github.com/azhargondal · linkedin.com/in/azhar-mehmood19",
       sudo: "nice try 😏 — you don't have root here.",
       theme: "dark mode is the only mode. (neon stays on)"
     };
     function run(raw) {
       var cmd = raw.trim().toLowerCase();
-      print('<span class="cmd">visitor@azhar:~$</span> ' + raw, "out");
+      print('<span class="cmd">visitor@azhar:~$</span> ' + esc(raw), "out");
       if (!cmd) return;
       if (cmd === "clear") { tbody.innerHTML = ""; return; }
       if (cmd.startsWith("open")) {
@@ -208,11 +231,12 @@
         print("opening projects…");
         return;
       }
-      if (commands[cmd]) print(commands[cmd]);
-      else print("command not found: " + cmd + " — type 'help'");
+      if (commands.hasOwnProperty(cmd)) print(esc(commands[cmd]));
+      else print("command not found: " + esc(cmd) + " — type 'help'");
     }
     fab.addEventListener("click", function () {
       term.classList.toggle("open");
+      fab.setAttribute("aria-expanded", term.classList.contains("open") ? "true" : "false");
       if (term.classList.contains("open")) setTimeout(function () { tinput.focus(); }, 200);
     });
     tinput.addEventListener("keydown", function (e) {
