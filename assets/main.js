@@ -11,30 +11,18 @@
     }, 1700);
   });
 
-  /* ---------- custom cursor ---------- */
-  var dot = document.querySelector(".cursor-dot");
-  var ring = document.querySelector(".cursor-ring");
+  /* ---------- mouse-follow glow ---------- */
   var glow = document.getElementById("mouse-glow");
-  if (!coarse && dot && ring) {
+  if (!coarse && glow) {
     var mx = innerWidth / 2, my = innerHeight / 2;
-    var rx = mx, ry = my, gx = mx, gy = my;
-    addEventListener("mousemove", function (e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + "px"; dot.style.top = my + "px";
-    });
+    var gx = mx, gy = my;
+    addEventListener("mousemove", function (e) { mx = e.clientX; my = e.clientY; });
     function loop() {
-      rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
       gx += (mx - gx) * 0.08; gy += (my - gy) * 0.08;
-      ring.style.left = rx + "px"; ring.style.top = ry + "px";
-      if (glow) { glow.style.left = gx + "px"; glow.style.top = gy + "px"; }
+      glow.style.left = gx + "px"; glow.style.top = gy + "px";
       requestAnimationFrame(loop);
     }
     loop();
-    var hoverables = "a, button, .btn, input, textarea, .chip, .project, .value, .skill-cat, .c-row, .footer-socials a";
-    document.querySelectorAll(hoverables).forEach(function (el) {
-      el.addEventListener("mouseenter", function () { ring.classList.add("hover"); });
-      el.addEventListener("mouseleave", function () { ring.classList.remove("hover"); });
-    });
   }
 
   /* ---------- magnetic buttons ---------- */
