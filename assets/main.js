@@ -158,6 +158,15 @@
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
+  /* ---------- footer local time (PKT) ---------- */
+  var clock = document.getElementById("f-clock");
+  if (clock) {
+    var fmt = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false, timeZone: "Asia/Karachi" });
+    var tick = function () { clock.textContent = fmt.format(new Date()); };
+    tick();
+    setInterval(tick, 1000);
+  }
+
   /* ---------- contact form (opens the visitor's mail client) ---------- */
   var form = document.querySelector(".contact-form");
   if (form) {
